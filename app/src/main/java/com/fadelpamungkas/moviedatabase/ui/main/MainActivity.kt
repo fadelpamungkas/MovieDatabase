@@ -1,6 +1,7 @@
 package com.fadelpamungkas.moviedatabase.ui.main
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,7 +13,6 @@ import com.fadelpamungkas.core.ui.MovieAdapter
 import com.fadelpamungkas.moviedatabase.R
 import com.fadelpamungkas.moviedatabase.databinding.ActivityMainBinding
 import com.fadelpamungkas.moviedatabase.ui.detail.DetailActivity
-import com.fadelpamungkas.moviedatabase.ui.favorite.FavoriteActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = getString(R.string.popularmovies)
 
         val movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
@@ -63,8 +64,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.favorite ->
-                startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+            R.id.favorite -> {
+                val uri = Uri.parse("movieapp://bookmark")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }
 
             else ->
                 super.onOptionsItemSelected(item)

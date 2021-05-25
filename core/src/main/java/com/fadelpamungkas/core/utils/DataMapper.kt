@@ -12,7 +12,7 @@ object DataMapper {
             photo = input.photo,
             rating = input.rating,
             release = input.release,
-            runtime = input.runtime,
+            popularity = input.popularity,
             description = input.description,
             isFavorite = false
         )
@@ -26,7 +26,7 @@ object DataMapper {
                 photo = it.photo,
                 rating = it.rating,
                 release = it.release,
-                runtime = it.runtime,
+                popularity = it.popularity,
                 description = it.description,
                 isFavorite = false
             )
@@ -42,7 +42,7 @@ object DataMapper {
                 photo = input.photo,
                 rating = input.rating,
                 release = input.release,
-                runtime = input.runtime,
+                popularity = input.popularity,
                 description = input.description,
                 isFavorite = input.isFavorite
             )
@@ -56,7 +56,7 @@ object DataMapper {
                 photo = it.photo,
                 rating = it.rating,
                 release = it.release,
-                runtime = it.runtime,
+                popularity = it.popularity,
                 description = it.description,
                 isFavorite = it.isFavorite
             )
@@ -68,7 +68,7 @@ object DataMapper {
         photo = input.photo,
         rating = input.rating,
         release = input.release,
-        runtime = input.runtime,
+        popularity = input.popularity,
         description = input.description,
         isFavorite = input.isFavorite
     )

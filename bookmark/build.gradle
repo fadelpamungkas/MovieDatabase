@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
@@ -13,9 +13,9 @@ android {
     buildFeatures {
         viewBinding true
     }
-
+    
     defaultConfig {
-        applicationId "com.fadelpamungkas.moviedatabase"
+        applicationId "com.fadelpamungkas.bookmark"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -30,18 +30,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    dynamicFeatures = [':bookmark']
 }
 
 dependencies {
+    implementation project(":app")
     implementation project(":core")
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

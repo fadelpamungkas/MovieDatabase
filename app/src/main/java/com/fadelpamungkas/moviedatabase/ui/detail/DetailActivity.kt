@@ -26,6 +26,8 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = getString(R.string.detailmovie)
+
         var movie = intent.getParcelableExtra<Movie>(EXTRA_MOVIE)
 
         if (movie != null) {
@@ -36,6 +38,7 @@ class DetailActivity : AppCompatActivity() {
                             binding.progressbar.visibility = View.VISIBLE
                         is Resource.Success -> {
                             binding.progressbar.visibility = View.GONE
+                            Log.d("getDetailMovie", response.data.toString())
                             movie = response.data
                             movie?.let {
                                 bindView(it)
@@ -64,8 +67,8 @@ class DetailActivity : AppCompatActivity() {
             ratingDetail.text = movie.rating.toString()
             release.text = getString(R.string.release_date)
             releaseDetail.text = movie.release
-            runtime.text = getString(R.string.runtime)
-            runtimeDetail.text = getString(R.string.minutes_ext, movie.runtime.toString())
+            popularity.text = getString(R.string.popularity)
+            popularityDetail.text = movie.popularity.toString()
             descDetail.text = movie.description
             Glide.with(this@DetailActivity)
                 .load("https://image.tmdb.org/t/p/w185" + movie.photo)

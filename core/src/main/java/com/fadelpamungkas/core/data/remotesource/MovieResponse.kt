@@ -13,8 +13,8 @@ data class MovieResponse(
     var rating: Float? = null,
     @SerializedName("release_date")
     var release: String? = null,
-    @SerializedName("runtime")
-    var runtime: Int? = null,
+    @SerializedName("popularity")
+    var popularity: Float? = null,
     @SerializedName("overview")
     var description: String? = null
 )

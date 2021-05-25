@@ -1,9 +1,9 @@
-package com.fadelpamungkas.moviedatabase.ui.favorite
+package com.fadelpamungkas.bookmark
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.fadelpamungkas.core.domain.usecase.MovieUseCase
 
-class FavoriteViewModel(movieUseCase: MovieUseCase): ViewModel() {
+class BookmarkViewModel(movieUseCase: MovieUseCase): ViewModel() {
     val favMovie = movieUseCase.getFavoriteMovie().asLiveData()
 }

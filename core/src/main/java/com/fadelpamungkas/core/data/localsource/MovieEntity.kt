@@ -9,7 +9,7 @@ data class MovieEntity(
     val title: String,
     var rating: Float? = null,
     var release: String? = null,
-    var runtime: Int? = null,
+    var popularity: Float? = null,
     var description: String? = null,
     var isFavorite: Boolean = false
 )

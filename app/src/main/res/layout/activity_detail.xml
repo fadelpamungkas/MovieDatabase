@@ -83,14 +83,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>
                 <TextView
-                    android:id="@+id/runtime"
+                    android:id="@+id/popularity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textStyle="bold"
-                    android:text="@string/runtime"/>
+                    android:text="@string/popularity"/>
                 <TextView
-                    android:id="@+id/runtime_detail"
+                    android:id="@+id/popularity_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"/>

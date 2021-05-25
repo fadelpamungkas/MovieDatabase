@@ -1,3 +1,4 @@
 rootProject.name = "MovieDatabase"
 include ':app'
 include ':core'
+include ':bookmark'

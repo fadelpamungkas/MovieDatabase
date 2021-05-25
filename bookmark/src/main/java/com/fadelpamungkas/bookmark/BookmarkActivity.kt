@@ -1,25 +1,31 @@
-package com.fadelpamungkas.moviedatabase.ui.favorite
+package com.fadelpamungkas.bookmark
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.fadelpamungkas.bookmark.databinding.ActivityBookmarkBinding
+import com.fadelpamungkas.bookmark.di.bookmarkModule
 import com.fadelpamungkas.core.ui.MovieAdapter
-import com.fadelpamungkas.moviedatabase.databinding.ActivityFavoriteBinding
 import com.fadelpamungkas.moviedatabase.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
-class FavoriteActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityFavoriteBinding
+class BookmarkActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityBookmarkBinding
 
-    private val favoriteViewModel: FavoriteViewModel by viewModel()
+    private val bookmarkViewModel: BookmarkViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityFavoriteBinding.inflate(layoutInflater)
+        binding = ActivityBookmarkBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        supportActionBar?.title = getString(R.string.mybookmark)
+
+        loadKoinModules(bookmarkModule)
 
         val movieAdapter = MovieAdapter()
         movieAdapter.onItemClick = { selectedData ->
@@ -28,7 +34,7 @@ class FavoriteActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        favoriteViewModel.favMovie.observe(this, { movie ->
+        bookmarkViewModel.favMovie.observe(this, { movie ->
             movieAdapter.setMovies(movie)
         })
 
