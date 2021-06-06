@@ -15,6 +15,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+val repositoryModule = module {
+    single { LocalDataSource(get()) }
+    single { RemoteDataSource(get()) }
+    factory { AppExecutors() }
+    single<AppRepository> {
+        com.fadelpamungkas.core.data.AppRepository(
+            get(),
+            get(),
+            get()
+        )
+    }
+}
+
 val databaseModule = module {
     factory { get<AppDatabase>().appDAO() }
     single {
@@ -40,18 +53,5 @@ val networkModule = module {
             .client(get())
             .build()
         retrofit.create(ApiRequest::class.java)
-    }
-}
-
-val repositoryModule = module {
-    single { LocalDataSource(get()) }
-    single { RemoteDataSource(get()) }
-    factory { AppExecutors() }
-    single<AppRepository> {
-        com.fadelpamungkas.core.data.AppRepository(
-            get(),
-            get(),
-            get()
-        )
     }
 }
