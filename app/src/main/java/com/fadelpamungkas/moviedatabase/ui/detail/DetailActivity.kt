@@ -57,7 +57,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun bindView(movie: Movie) {
         var favorite = movie.isFavorite
-        favoriteState(favorite, movie.isFavorite)
+        favoriteState(favorite)
 
         with(binding) {
             progressbar.visibility = View.GONE
@@ -83,12 +83,12 @@ class DetailActivity : AppCompatActivity() {
                 Snackbar.make(view, getString(R.string.remove_from_bookmark), Snackbar.LENGTH_SHORT).show()
             }
             detailViewModel.setFavorite(movie, favorite)
-            favoriteState(favorite, movie.isFavorite)
+            favoriteState(favorite)
         }
 
     }
 
-    private fun favoriteState(state: Boolean, favorite:Boolean) {
+    private fun favoriteState(state: Boolean) {
         if (state) {
             binding.fabFavorite.setImageResource(R.drawable.ic_bookmark_24)
         } else {

@@ -12,7 +12,7 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
-    <application>
+    <application android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".BookmarkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
