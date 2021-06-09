@@ -1,8 +1,6 @@
 package com.fadelpamungkas.core.domain.model
 
 import android.os.Parcelable
-import androidx.room.Entity
-import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

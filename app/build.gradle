@@ -43,6 +43,7 @@ android {
 dependencies {
     implementation project(":core")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

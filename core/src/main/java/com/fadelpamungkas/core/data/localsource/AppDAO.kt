@@ -1,8 +1,6 @@
 package com.fadelpamungkas.core.data.localsource
 
 import androidx.room.*
-import androidx.sqlite.db.SimpleSQLiteQuery
-import com.fadelpamungkas.core.data.remotesource.MovieResponse
 import kotlinx.coroutines.flow.Flow
 
 @Dao
