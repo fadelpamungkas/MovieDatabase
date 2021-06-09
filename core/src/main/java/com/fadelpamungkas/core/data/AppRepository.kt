@@ -26,7 +26,7 @@ class AppRepository(
             }
 
             override fun shouldFetch(data: List<Movie>?): Boolean =
-                true
+                data == null
 
             override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getPopularMovies()
