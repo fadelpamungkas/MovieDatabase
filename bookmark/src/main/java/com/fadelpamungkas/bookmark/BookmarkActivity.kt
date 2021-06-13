@@ -3,6 +3,7 @@ package com.fadelpamungkas.bookmark
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fadelpamungkas.bookmark.databinding.ActivityBookmarkBinding
 import com.fadelpamungkas.bookmark.di.bookmarkModule
@@ -34,8 +35,14 @@ class BookmarkActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.progressbar.visibility = View.GONE
         bookmarkViewModel.favMovie.observe(this, { movie ->
             movieAdapter.setMovies(movie)
+            if (!movie.isNullOrEmpty()) {
+                binding.recyclerView.visibility = View.VISIBLE
+            } else {
+                binding.lottieEmpty.visibility = View.VISIBLE
+            }
         })
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
