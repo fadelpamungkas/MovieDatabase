@@ -1,7 +1,7 @@
 package com.fadelpamungkas.core.di
 
 import androidx.room.Room
-import com.dicoding.tourismapp.core.utils.AppExecutors
+import com.fadelpamungkas.core.utils.AppExecutors
 import com.fadelpamungkas.core.data.localsource.AppDatabase
 import com.fadelpamungkas.core.data.localsource.LocalDataSource
 import com.fadelpamungkas.core.data.remotesource.ApiRequest

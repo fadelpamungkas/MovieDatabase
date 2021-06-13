@@ -1,4 +1,6 @@
-package com.dicoding.tourismapp.core.utils
+@file:Suppress("unused")
+
+package com.fadelpamungkas.core.utils
 
 import android.os.Handler
 import android.os.Looper
@@ -24,10 +26,6 @@ class AppExecutors @VisibleForTesting constructor(
     )
 
     fun diskIO(): Executor = diskIO
-
-    fun networkIO(): Executor = networkIO
-
-    fun mainThread(): Executor = mainThread
 
     private class MainThreadExecutor : Executor {
         private val mainThreadHandler = Handler(Looper.getMainLooper())

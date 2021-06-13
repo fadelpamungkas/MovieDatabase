@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.fadelpamungkas.moviedatabase
 
 import android.app.Application

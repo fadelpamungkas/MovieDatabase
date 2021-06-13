@@ -1,6 +1,6 @@
 package com.fadelpamungkas.core.data
 
-import com.dicoding.tourismapp.core.utils.AppExecutors
+import com.fadelpamungkas.core.utils.AppExecutors
 import com.fadelpamungkas.core.utils.DataMapper
 import com.fadelpamungkas.core.data.localsource.LocalDataSource
 import com.fadelpamungkas.core.data.remotesource.ApiResponse
