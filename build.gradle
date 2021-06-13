@@ -12,6 +12,7 @@ buildscript {
     ext.multidex_version = "2.0.1"
 
     ext.kotlin_coroutines_version = "1.4.1"
+    ext.kotlin_coroutines_android_version = "1.5.0"
     ext.lifecycle_version = "2.3.1"
 
     ext.cardview_version = "1.0.0"
@@ -25,6 +26,9 @@ buildscript {
     ext.logging_interceptor_version = "4.9.1"
 
     ext.koin_version = "2.1.6"
+
+    ext.sqlcipher_version = "4.4.0"
+    ext.sqlite_version = "2.1.0"
 
     repositories {
         google()

@@ -7,6 +7,8 @@ import com.fadelpamungkas.core.data.localsource.LocalDataSource
 import com.fadelpamungkas.core.data.remotesource.ApiRequest
 import com.fadelpamungkas.core.data.remotesource.RemoteDataSource
 import com.fadelpamungkas.core.domain.repository.AppRepository
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -31,10 +33,14 @@ val repositoryModule = module {
 val databaseModule = module {
     factory { get<AppDatabase>().appDAO() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("execration".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
-            AppDatabase::class.java, "app_database"
-        ).fallbackToDestructiveMigration().build()
+            AppDatabase::class.java, "app_database")
+            .fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
